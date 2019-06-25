@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>devDependence | 随影而来</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Node的dependencies与devDependencies从npm说起 NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题，常见的使用场景有以下几种：  允许用户从NPM服务器下载别人编写的第三方包到本地使用。 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。   packa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="devDependence">
+<meta property="og:url" content="http://yoursite.com/2019/05/21/devDependence/index.html">
+<meta property="og:site_name" content="随影而来">
+<meta property="og:description" content="Node的dependencies与devDependencies从npm说起 NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题，常见的使用场景有以下几种：  允许用户从NPM服务器下载别人编写的第三方包到本地使用。 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。   packa">
+<meta property="og:locale" content="Chinese">
+<meta property="og:updated_time" content="2019-05-21T15:10:56.994Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="devDependence">
+<meta name="twitter:description" content="Node的dependencies与devDependencies从npm说起 NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题，常见的使用场景有以下几种：  允许用户从NPM服务器下载别人编写的第三方包到本地使用。 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。   packa">
+  
+    <link rel="alternate" href="/atom.xml" title="随影而来" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">随影而来</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">闲鱼的梦想</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-devDependence" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/21/devDependence/" class="article-date">
+  <time datetime="2019-05-21T14:33:19.000Z" itemprop="datePublished">2019-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      devDependence
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Node的dependencies与devDependencies"><a href="#Node的dependencies与devDependencies" class="headerlink" title="Node的dependencies与devDependencies"></a>Node的dependencies与devDependencies</h1><h3 id="从npm说起"><a href="#从npm说起" class="headerlink" title="从npm说起"></a>从npm说起</h3><blockquote>
+<p>NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题，常见的使用场景有以下几种：</p>
+<ul>
+<li>允许用户从NPM服务器下载别人编写的第三方包到本地使用。</li>
+<li>允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。</li>
+<li>允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。</li>
+</ul>
+</blockquote>
+<h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p>管理本地包的配置文件，在文件中需要配置一些基础信息，以及项目依赖包的信息。</p>
+<h3 id="dependencies与devDependencies登场"><a href="#dependencies与devDependencies登场" class="headerlink" title="dependencies与devDependencies登场"></a>dependencies与devDependencies登场</h3><p>package.json之中便出现了我们这次讨论的主角，dependencies与devDependencies。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install xxx --save // 安装后写入dependencies</span><br><span class="line">npm install xxx --save-dev // 安装后写入devDependencies</span><br></pre></td></tr></table></figure></p>
+<p>上述是命令行安装依赖时候使用的命令<br>那么这两行看似相近的命令到底有什么区别呢？顾名思义：</p>
+<h4 id="dependencies"><a href="#dependencies" class="headerlink" title="dependencies"></a>dependencies</h4><p>运行时刻需要的包</p>
+<h4 id="devDependencies"><a href="#devDependencies" class="headerlink" title="devDependencies"></a>devDependencies</h4><p>开发时候需要用到的包（比如一些处理编译/测试框架的包)，会在执行npm install或者npm link时安装  </p>
+<hr>
+<p>例如我们的项目使用ES6来编写，但是最后为了兼容性，一般我们会输出编译后的js文件到lib目录供别人使用<br>那么我们编译相关的babel之类的包便是本地发布时需要使用的包，而对于使用方来说并不需要，因此这些包就可以放到devDependencies里<br>一般在真正发布线上的时候，脚本命令也会使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --prod</span><br></pre></td></tr></table></figure></p>
+<p>这样只会在服务器安装运行时刻需要依赖的包而已。<br>后续我还会讨论项目中遇到的一些依赖安装的坑，下次再见啦</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/21/devDependence/" data-id="cjwyofuuj00020skw3d5ao1y3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/27/react-memorization/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          react-memorization
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/13/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/14/掉坑记录/">掉坑记录</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/13/曝光trace/">曝光trace</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/03/cookie采坑实录/">cookie采坑实录</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/cli/">cli知多少</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/29/采坑实录/">采坑实录</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Lloyd<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
